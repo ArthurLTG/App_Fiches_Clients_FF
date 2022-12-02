@@ -153,7 +153,7 @@ def Display(df):
         st.markdown("---")
     
         st.bar_chart(df_PubEmail.set_index("MagasinCreation"), y="% PubEmail")
-        st.markdown("---")
+       
 
         #dfVolClientKnown2 = df2[df2["Type_client"]=="Known"].groupby(["MagasinCreation"])["Client"].count()
         #dfVolClient = df2[df2["Type_client"]=="New"].groupby(["MagasinCreation"])["Client"].count()
@@ -179,7 +179,7 @@ def Display(df):
         df_PubEmail_Date = df2[["MoisCreation","PubEmail","Client"]].groupby(by="MoisCreation",as_index=False).aggregate({"PubEmail":"sum","Client":"count"})
         df_PubEmail_Date["% PubEmail"] = ((df_PubEmail_Date["PubEmail"] / df_PubEmail_Date["Client"])*100).astype(int)
         st.line_chart(df_PubEmail_Date.set_index("MoisCreation"), y="% PubEmail")
-        st.markdown("---")
+       
 
         #dfVolClientKnown = df2[df2["Type_client"]=="Known"].groupby(["MoisCreation"])["Client"].count()
         #dfVolClient = df2[df2["Type_client"]=="New"].groupby(["MoisCreation"])["Client"].count()
