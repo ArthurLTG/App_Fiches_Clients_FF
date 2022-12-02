@@ -45,7 +45,7 @@ def Display(df):
     st.title("👥 Fiches Clients ")
     st.write(" ")
 
-    colA, colB, colC, colD = st.columns([1,1,1,1])
+    colA, colB, colC= st.columns([1,1,1])
     with colA:
         st.metric(label="Taux de Completion (en %)",value= round(df2["Tx_Complet"].mean()*100,1))
         
@@ -57,10 +57,10 @@ def Display(df):
         Taux_PubEmail_OK = df2[df2["PubEmail"]==1]["PubEmail"].count()*100/ df2["Email"].count()
         st.metric(label="Taux_PubEmail_OK (en %)",value= round(Taux_PubEmail_OK, 0))
 
-    with colD:
+    #with colD:
         #dfgb_Tx_Complet = round(df2.groupby(["MagasinCreation","Type_client"])["Tx_Complet"].mean()*100,0)
-        Taux_Known_New = df2[df2["Type_client"]=="Known"]["Client"].count()*100 /df2["Client"].count()
-        st.metric(label="Taux_Clients_Connus (en %)",value=round(Taux_Known_New,0))
+        #Taux_Known_New = df2[df2["Type_client"]=="Known"]["Client"].count()*100 /df2["Client"].count()
+        #st.metric(label="Taux_Clients_Connus (en %)",value=round(Taux_Known_New,0))
 
 
     # ----------------------------------------------------------------------
@@ -155,11 +155,11 @@ def Display(df):
         st.bar_chart(df_PubEmail.set_index("MagasinCreation"), y="% PubEmail")
         st.markdown("---")
 
-        dfVolClientKnown2 = df2[df2["Type_client"]=="Known"].groupby(["MagasinCreation"])["Client"].count()
-        dfVolClient = df2[df2["Type_client"]=="New"].groupby(["MagasinCreation"])["Client"].count()
-        dfVolClientKnown2 = pd.merge(dfVolClient,dfVolClientKnown2, on="MagasinCreation")
-        dfVolClientKnown2["% Known"] = (dfVolClientKnown2["Client_y"]*100 / dfVolClientKnown2["Client_x"]).astype(int)
-        st.bar_chart(dfVolClientKnown2, y="% Known")
+        #dfVolClientKnown2 = df2[df2["Type_client"]=="Known"].groupby(["MagasinCreation"])["Client"].count()
+        #dfVolClient = df2[df2["Type_client"]=="New"].groupby(["MagasinCreation"])["Client"].count()
+        #dfVolClientKnown2 = pd.merge(dfVolClient,dfVolClientKnown2, on="MagasinCreation")
+        #dfVolClientKnown2["% Known"] = (dfVolClientKnown2["Client_y"]*100 / dfVolClientKnown2["Client_x"]).astype(int)
+        #st.bar_chart(dfVolClientKnown2, y="% Known")
         
     
 
