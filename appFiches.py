@@ -180,11 +180,11 @@ def Display(df):
         st.line_chart(df_PubEmail_Date.set_index("MoisCreation"), y="% PubEmail")
         st.markdown("---")
 
-        dfVolClientKnown = df2[df2["Type_client"]=="Known"].groupby(["MoisCreation"])["Client"].count()
-        dfVolClient = df2[df2["Type_client"]=="New"].groupby(["MoisCreation"])["Client"].count()
-        dfVolClientKnown = pd.merge(dfVolClient,dfVolClientKnown, on="MoisCreation")
-        dfVolClientKnown["% Known"] = (dfVolClientKnown["Client_y"]*100 / dfVolClientKnown["Client_x"]).astype(int)
-        st.line_chart(dfVolClientKnown, y="% Known")
+        #dfVolClientKnown = df2[df2["Type_client"]=="Known"].groupby(["MoisCreation"])["Client"].count()
+        #dfVolClient = df2[df2["Type_client"]=="New"].groupby(["MoisCreation"])["Client"].count()
+        #dfVolClientKnown = pd.merge(dfVolClient,dfVolClientKnown, on="MoisCreation")
+        #dfVolClientKnown["% Known"] = (dfVolClientKnown["Client_y"]*100 / dfVolClientKnown["Client_x"]).astype(int)
+        #st.line_chart(dfVolClientKnown, y="% Known")
         
     # ----------------------------------------------------------------------
     st.markdown("---")
