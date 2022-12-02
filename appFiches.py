@@ -167,6 +167,7 @@ def Display(df):
         st.subheader("Par Date")
         st.write(" ")
         st.write(" ")
+        st.write(" ")
         total_parDate_TxComplet = df2.groupby(["MoisCreation"])["Tx_Complet"].mean().apply(lambda x: x*100)
         st.line_chart(total_parDate_TxComplet, y="Tx_Complet")
         st.markdown("---")
